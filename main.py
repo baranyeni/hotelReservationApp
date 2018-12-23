@@ -205,7 +205,7 @@ def checkout(): # provides information of total cost about the user's plan.
         print '     = %d$' %(day * 20)
 
     else:
-        print '%d x 20$' %(day)
+        print '%d x 16$' %(day)
         print '     = %d$' %(day * 16)
         
     return
