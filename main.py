@@ -88,7 +88,7 @@ def listAvailableRooms(checkInDate, checkOutDate): # This function lists the ava
         for i in range(delta.days + 1):
             userDays = (userCheckInDate + datetime.timedelta(i))
             if startDate <= userDays <= endDate:
-                print "oo"
+##                print "oo"
                 unavailableRooms.append(reserved[roomIndex][0])                
 ##            else:
 ##                print "This room is available."
