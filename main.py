@@ -187,7 +187,7 @@ def getDate(): # gets plan date from user, while loop for each date info.
             print "Something Went Wrong, Please Try Again."
     
     print ("Your Plan's Start Date is %d/%d/%d" %(startDay, startMonth, startYear))
-    print ("Your Plan's Start Date is %d/%d/%d" %(stopDay, stopMonth, stopYear))
+    print ("Your Plan's Stop Date is %d/%d/%d" %(stopDay, stopMonth, stopYear))
     
     return
 
