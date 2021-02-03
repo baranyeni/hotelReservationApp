@@ -39,12 +39,12 @@ def ask(): # ask function works like, would you like to go on or quit?
         start()
 
 def listAvailableRooms(checkInDate, checkOutDate): # This function lists the available rooms, which are located in reserved.txt. If rooms in that file are full on users date, then they will not occur to user.
-    roomList = []
+    roomList         = []
     unavailableRooms = []
-    availableRooms = []
-    reserved = []
-    roomDates = []
-    roomCodes = []    
+    availableRooms   = []
+    reserved         = []
+    roomDates        = []
+    roomCodes        = []    
     
     with open("rooms.txt", "r") as roomFile:
         for line in roomFile:
@@ -59,28 +59,28 @@ def listAvailableRooms(checkInDate, checkOutDate): # This function lists the ava
         roomCodes.append(room[0])
 
     for roomIndex in range(0, len(reserved)):
-        roomDate = roomDates[roomIndex]
-        reservedRoomStartDay = roomDate[0]
+        roomDate               = roomDates[roomIndex]
+        reservedRoomStartDay   = roomDate[0]
         reservedRoomStartMonth = roomDate[1]
-        reservedRoomStartYear = roomDate[2]
+        reservedRoomStartYear  = roomDate[2]
         
-        reservedRoomStopDay = roomDate[3]
-        reservedRoomStopMonth = roomDate[4]
-        reservedRoomStopYear = roomDate[5]
-
-        startDate = datetime.datetime(day=int(reservedRoomStartDay),month=int(reservedRoomStartMonth),year=int(reservedRoomStartYear))
-        endDate = datetime.datetime(day=int(reservedRoomStopDay),month=int(reservedRoomStopMonth),year=int(reservedRoomStopYear))
-
-        userCheckInDay = checkInDate[0]
-        userCheckInMonth = checkInDate[1]
-        userCheckInYear = checkInDate[2]
-
-        userCheckOutDay = checkOutDate[0]
-        userCheckOutMonth = checkOutDate[1]
-        userCheckOutYear = checkOutDate[2]
-
-        userCheckInDate = datetime.datetime(day=userCheckInDay,month=userCheckInMonth,year=userCheckInYear)
-        userCheckOutDate = datetime.datetime(day=userCheckOutDay,month=userCheckOutMonth,year=userCheckOutYear)
+        reservedRoomStopDay    = roomDate[3]
+        reservedRoomStopMonth  = roomDate[4]
+        reservedRoomStopYear   = roomDate[5]
+        
+        startDate              = datetime.datetime(day=int(reservedRoomStartDay),month=int(reservedRoomStartMonth),year=int(reservedRoomStartYear))
+        endDate                = datetime.datetime(day=int(reservedRoomStopDay),month=int(reservedRoomStopMonth),year=int(reservedRoomStopYear))
+        
+        userCheckInDay         = checkInDate[0]
+        userCheckInMonth       = checkInDate[1]
+        userCheckInYear        = checkInDate[2]
+        
+        userCheckOutDay        = checkOutDate[0]
+        userCheckOutMonth      = checkOutDate[1]
+        userCheckOutYear       = checkOutDate[2]
+        
+        userCheckInDate        = datetime.datetime(day=userCheckInDay,month=userCheckInMonth,year=userCheckInYear)
+        userCheckOutDate       = datetime.datetime(day=userCheckOutDay,month=userCheckOutMonth,year=userCheckOutYear)
 
         global delta
         delta = userCheckOutDate - userCheckInDate
@@ -88,7 +88,6 @@ def listAvailableRooms(checkInDate, checkOutDate): # This function lists the ava
         for i in range(delta.days + 1):
             userDays = (userCheckInDate + datetime.timedelta(i))
             if startDate <= userDays <= endDate:
-##                print "oo"
                 unavailableRooms.append(reserved[roomIndex][0])                
 ##            else:
 ##                print "This room is available."
@@ -99,7 +98,7 @@ def listAvailableRooms(checkInDate, checkOutDate): # This function lists the ava
         availableRooms.append(current)
         
     for i in availableRooms:
-        i.sort(key=lambda x:x[0:-1])
+        i.sort(key = lambda x:x[0:-1])
         print i
     return
 
@@ -238,7 +237,7 @@ while True: # this loop runs until ask() function returns exit.
     if (mode == "1"):
         clear()      
         getDate()
-        checkInDate = (startDay, startMonth, startYear)
+        checkInDate  = (startDay, startMonth, startYear)
         checkOutDate = (stopDay, stopMonth, stopYear)
         ask()
 
